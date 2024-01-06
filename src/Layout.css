@@ -21,6 +21,7 @@
 @media only screen and (max-width: 800px) {
 	.Layout {
 		flex-direction: column;
+		padding: 15px;
 	}
 
 	.Sidebar {

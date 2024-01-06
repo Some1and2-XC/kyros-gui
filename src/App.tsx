@@ -6,6 +6,7 @@ import "./App.css";
 
 import Sidebar from "./Sidebar";
 import Layout from "./Layout";
+import OptionBox from "./OptionBox";
 
 function App() {
 
@@ -42,8 +43,15 @@ function App() {
 					/>
 					<button type="submit">Greet</button>
 				</form>
-
 				<p>{greetMsg}</p>
+				<hr />
+				<OptionBox
+					title="button"
+					description="desc"
+					datatype="str"
+					data_title="button_value"
+					image="img"
+				/>
 			</div>
 		</Layout>
     );
