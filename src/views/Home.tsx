@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
 
-import kyrosLogo from "../assets/kyros.svg";
 import OptionBox from "../OptionBox";
 
 function Home() {
@@ -15,8 +14,6 @@ function Home() {
 
 	return (
 		<div className="container">
-			<img src={kyrosLogo} className="logo" alt="Kyros Logo" />
-
 			<form
 				className="row"
 				onSubmit={(e) => {

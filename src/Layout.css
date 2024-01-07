@@ -7,10 +7,14 @@
 	gap: 1em;
 }
 
+.Layout > * {
+	padding: 15px;
+}
+
 .Sidebar {
+	background-color: rgba(0, 0, 0, 0.2);
 	padding: 15px;
 
-	border-right: 1px solid white;
 	min-width: 200px;
 
 	display: flex;
@@ -21,12 +25,5 @@
 @media only screen and (max-width: 800px) {
 	.Layout {
 		flex-direction: column;
-		padding: 15px;
-	}
-
-	.Sidebar {
-		padding-right: 0px;
-		border-right: None;
 	}
 }
-

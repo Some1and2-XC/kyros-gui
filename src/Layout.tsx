@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
 import "./Layout.css";
 
+import kyrosLogo from "./assets/kyros.svg";
+
 function Sidebar({ children }) {
 	// .Sidebar css found in Layout.css
 	return (
@@ -14,7 +16,7 @@ function Layout() {
 	return (
 		<div className="Layout">
 			<Sidebar>
-				<h1 style={{textDecoration: "underline"}}>Table of Contents</h1>
+				<img src={kyrosLogo} className="logo" alt="Kyros Logo" />
 				<Link to="/">Generation</Link>
 				<Link to="/gallery">Saved Images</Link>
 				<Link to="/donate">Donate</Link>
