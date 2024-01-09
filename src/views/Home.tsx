@@ -52,7 +52,7 @@ function Home() {
 						description="desc"
 						data_name="measurement"
 						data_value="IT"
-						image="./genrator/IT.svg"
+						image="./IT.svg"
 						checked
 					/>
 					<OptionBox
@@ -60,7 +60,7 @@ function Home() {
 						description="desc"
 						data_name="measurement"
 						data_value="TD"
-						image="./genrator/TD.svg"
+						image="./TD.svg"
 					/>
 				</OptionBoxSection>
 

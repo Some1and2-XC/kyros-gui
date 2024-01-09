@@ -49,7 +49,16 @@ function OptionBox(props, {children}) {
 					<h1>{config.title}</h1>
 					<img
 						src={config.image}
-						style={{width: "min(17vw, 10rem)"}}
+						style={{
+							width: "min(17vw, 10rem)",
+							filter:
+								`
+								drop-shadow(1px 1px 0px white)
+								drop-shadow(-1px 1px 0px white)
+								drop-shadow(1px -1px 0px white)
+								drop-shadow(-1px -1px 0px white)
+								`
+						}}
 					/>
 					{ children }
 				</div>
@@ -75,6 +84,12 @@ function OptionBoxSection({ children, ...props }) {
 		datatype: `<${props.datatype}>`,
 		description: props.description,
 	};
+	const inner_config = {
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-between",
+		gap: "15px",
+	};
 
 	return (
 		<>
@@ -83,7 +98,7 @@ function OptionBoxSection({ children, ...props }) {
 				<code>(Datatype : { config.datatype })</code>
 				<hr style={{width: "100%"}} />
 				<p>{ config.description }</p>
-				<div style={{display: "flex", gap: "15px"}}>
+				<div style={inner_config}>
 					{children}
 				</div>
 			</div>
