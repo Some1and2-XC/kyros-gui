@@ -15,31 +15,93 @@ function Home() {
 	return (
 		<div className="container">
 			<p>{greetMsg}</p>
-			<h1>Generation</h1>
 			<br />
-			
-				<OptionBoxSection>
+			<OptionBoxForm>
+				<h1>Generation</h1>
+				<OptionBoxSection
+					title="Generator Selected Variable"
+					datatype="String"
+					description="Selects which variable to change in iteration."
+				>
 
 					<OptionBox
-						title="button"
+						title="Mandelbrot"
 						description="desc"
-						datatype="str"
-						data_name="button_value"
-						data_value="0"
-						image="img"
+						data_name="is_julia"
+						data_value="false"
+						image="./generator/SD.png"
 						checked
 					/>
 
 					<OptionBox
-						title="button"
+						title="Julia"
 						description="desc"
-						datatype="str"
-						data_name="button_value"
+						data_name="is_julia"
 						data_value="1"
-						image="img"
+						image="./generator/JS.png"
 					/>
-
 				</OptionBoxSection>
+
+				<OptionBoxSection
+					title="Generator Measurement"
+					datatype="String"
+					description="Selects what the generator measures."
+				>
+					<OptionBox
+						title="Iteration"
+						description="desc"
+						data_name="measurement"
+						data_value="IT"
+						image="./genrator/IT.svg"
+						checked
+					/>
+					<OptionBox
+						title="Distance"
+						description="desc"
+						data_name="measurement"
+						data_value="TD"
+						image="./genrator/TD.svg"
+					/>
+				</OptionBoxSection>
+
+				<OptionBoxSection
+					title="Generator Formula"
+					datatype="String"
+					description="Selects the formula for generation."
+				>
+					<OptionBox
+						title="Standard"
+						description="desc"
+						data_name="formula"
+						data_value="SD"
+						image="./generator/SD.png"
+						checked
+					/>
+					<OptionBox
+						title="Rabbit"
+						description="desc"
+						data_name="formula"
+						data_value="R"
+						image="./generator/R.png"
+					/>
+					<OptionBox
+						title="Burning Ship"
+						description="desc"
+						data_name="formula"
+						data_value="BS"
+						image="./generator/BS.png"
+					/>
+					<OptionBox
+						title="Absolute Rabbit"
+						description="desc"
+						data_name="formula"
+						data_value="ABR"
+						image="./generator/ABR.png"
+					/>
+				</OptionBoxSection>
+				<input />
+
+			</OptionBoxForm>
 			
 			<form
 				style={{margin: "15px"}}

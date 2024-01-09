@@ -1,0 +1,7 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="stroke: black;fill: none">
+	<marker style="overflow:visible" id="ColoredDot">
+		<path transform="scale(0.45)" style="stroke-width:2; fill: none;" d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"></path>
+	</marker>
+	<path style="stroke-width:3;stroke-linecap:round;stroke-miterlimit:5.6;marker-start:url(#ColoredDot);marker-end:url(#ColoredDot)" d="M 17.919269,72.460648 82.073528,27.539352"></path>
+	<path style="stroke-width:5; stroke-linejoin:round;" d="M 31.614333,73.098272 37.212954,81.093931 82.976089,49.050239 77.377468,41.05458"></path>
+</svg>

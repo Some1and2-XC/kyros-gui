@@ -26,4 +26,8 @@
 	.Layout {
 		flex-direction: column;
 	}
+
+	.Layout > * {
+		padding: 0px;
+	}
 }
