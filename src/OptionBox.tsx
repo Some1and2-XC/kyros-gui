@@ -1,61 +1,96 @@
 import { useState } from "react";
+import "./OptionBox.css";
+
+function OptionBoxForm({props, children}) {
+
+	let options = {
+		htmlFor: props.htmlFor
+	};
+
+	return (
+		<form>
+			{children}
+			<input type="submit">
+				Submit!
+			</input>
+		</form>
+	);
+}
 
 function OptionBox(props, {children}) {
 
-	const button_pressed = () => {
+	function button_pressed(event) {
+		let input_boxes = event
+			.currentTarget
+			.getElementsByTagName("input")[0];
+		
+		input_boxes.checked = true;
 
-		let new_style = {...object_style};
-		if (!is_selected) {
-			new_style.backgroundColor = "#dd0000";
-		}
-		else {
-			delete new_style.backgroundColor;
-		}
-
-		set_is_selected(!is_selected);
-		set_object_style(new_style);
 	}
 
 	const config = {
 		title: props.title,
 		description: props.description,
 		datatype: `<${props.datatype}>`,
-		data_title: props.data_title,
-		image: props.image
+		data_name: props.data_name,
+		data_value: props.data_value,
+		image: props.image,
 	};
 
 	const [object_style, set_object_style] = useState({
-		border: "1px solid white",
+		border: "1px solid var(--outline-color)",
 		borderRadius: "5px",
-		padding: "0px"
+		padding: "7px",
+		cursor: "pointer"
 	});
 	const [is_selected, set_is_selected] = useState(false);
 
 	return (
 		<>
-			<button style={object_style} onClick={button_pressed}>
-				<h1>{ config.title }</h1>
-				<code>(Datatype : { config.datatype })</code>
-				<hr />
-				<p>{ config.description }</p>
-				{ children }
-			</button>
+			<label
+				className="OptionBox"
+				tabIndex={0}
+				htmlFor={config.data_name}
+				style={object_style}
+				onClick={button_pressed}
+			>
+				<input
+					type="radio"
+					name={config.data_name}
+					value={config.data_value}
+					style={{display: "None"}}
+					checked={props.checked}
+				/>
+				<div>
+					<h1>{ config.title }</h1>
+					<code>(Datatype : { config.datatype })</code>
+					<hr />
+					<p>{ config.description }</p>
+					{ children }
+				</div>
+			</label>
 		</>
 	);
 }
 
-function OptionBoxSection(props, { children }) {
+function OptionBoxSection({ children, props }) {
 
 	const object_style = {
-		border: "1px solid white",
+		display: "flex",
+		gap: "15px",
+		padding: "15px",
+		border: "1px solid var(--outline-color)",
 		borderRadius: "5px"
 	};
 
 	return (
 		<>
+			<div style={object_style}>
+				{children}
+			</div>
 		</>
 	);
 
 }
 
-export default OptionBox;
+export {OptionBox, OptionBoxSection, OptionBoxForm};

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
 
-import OptionBox from "../OptionBox";
+import {OptionBox, OptionBoxSection, OptionBoxForm} from "../OptionBox";
 
 function Home() {
 
@@ -14,7 +14,35 @@ function Home() {
 
 	return (
 		<div className="container">
+			<p>{greetMsg}</p>
+			<h1>Generation</h1>
+			<br />
+			
+				<OptionBoxSection>
+
+					<OptionBox
+						title="button"
+						description="desc"
+						datatype="str"
+						data_name="button_value"
+						data_value="0"
+						image="img"
+						checked
+					/>
+
+					<OptionBox
+						title="button"
+						description="desc"
+						datatype="str"
+						data_name="button_value"
+						data_value="1"
+						image="img"
+					/>
+
+				</OptionBoxSection>
+			
 			<form
+				style={{margin: "15px"}}
 				className="row"
 				onSubmit={(e) => {
 					e.preventDefault();
@@ -28,15 +56,7 @@ function Home() {
 				/>
 				<button type="submit">Greet</button>
 			</form>
-			<p>{greetMsg}</p>
-			<br />
-			<OptionBox
-				title="button"
-				description="desc"
-				datatype="str"
-				data_title="button_value"
-				image="img"
-			/>
+
 		</div>
 	);
 }
