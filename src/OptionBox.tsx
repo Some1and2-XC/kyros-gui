@@ -92,8 +92,9 @@ function OptionTextBox({ children, ...props }) {
 				style={object_style}
 			>
 				<input
-					type="text"
+					type="number"
 					name={config.data_name}
+					style={{height: "2em",}}
 					value={text_value}
 					onChange={keyUpdate}
 				/>

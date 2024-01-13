@@ -8,6 +8,12 @@ function Home() {
     const [greetMsg, setGreetMsg] = useState("");
     const [name, setName] = useState("");
 
+	const [image, set_image] = useState("");
+
+	async function kryos() {
+		set_image(await invoke("kyros", { config }));
+	}
+
     async function greet() {
         setGreetMsg(await invoke("greet", { name }));
     }
@@ -16,6 +22,18 @@ function Home() {
 		<>
 			<div style={{}}>
 				<OptionBoxForm>
+					<input 
+						type="submit"
+						value="Generate"
+						style={{
+							height: "3em",
+							width: "50%",
+							marginLeft: "auto",
+							marginRight: "auto",
+						}}
+					/>
+					<img src={image} />
+					<br />
 					<h1>Generation</h1>
 					<OptionBoxCollection>
 						<OptionBoxSection
@@ -135,14 +153,14 @@ function Home() {
 							<OptionBox
 								title="Rotational"
 								data_name="color_style"
-								data_value="ROTATIONAL"
+								data_value="rotational"
 								image="/measure/rotation.svg"
 								checked
 							/>
 							<OptionBox
 								title="Sinusoidal"
 								data_name="color_style"
-								data_value="SINUSOIDAL"
+								data_value="sinusoidal"
 								image="/measure/sinusoid.svg"
 							/>
 						</OptionBoxSection>
