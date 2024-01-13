@@ -113,7 +113,7 @@ function OptionBoxSection({ children, ...props }) {
 		flexWrap: "wrap",
 		flexGrow: "1",
 		flexDirection: "column",
-		boxShadow: "3px 2px 15px -15px white",
+		boxShadow: "3px 2px 12px -10px rgb(255, 45, 45)",
 		gap: "15px",
 		padding: "15px",
 		margin: "0.5em",
@@ -146,15 +146,24 @@ function OptionBoxSection({ children, ...props }) {
 }
 
 function OptionBoxCollection({children, ...props}) {
+	const config = {
+		title: props.title,
+	};
+
 	const object_style = {
 		display: "flex",
 		flexWrap: "wrap",
 		gap: "15px",
 	};
 	return (
-		<div style={object_style}>
-			{children}
-		</div>
+		<>
+			<br />
+			<hr style={{width: "100%"}} />
+			<h1>{config.title}</h1>
+			<div style={object_style}>
+				{children}
+			</div>
+		</>
 	);
 }
 

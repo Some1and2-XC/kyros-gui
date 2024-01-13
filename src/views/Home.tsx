@@ -33,9 +33,10 @@ function Home() {
 						}}
 					/>
 					<img src={image} />
-					<br />
-					<h1>Generation</h1>
-					<OptionBoxCollection>
+
+					<OptionBoxCollection
+						title="Generation"
+					>
 						<OptionBoxSection
 							title="Generator Selected Variable"
 							description="Selects which variable to change in iteration."
@@ -45,7 +46,7 @@ function Home() {
 								title="Mandelbrot"
 								description="desc"
 								data_name="is_julia"
-								data_value="false"
+								data_value="0"
 								image="./generator/SD.png"
 								checked
 							/>
@@ -60,7 +61,7 @@ function Home() {
 						</OptionBoxSection>
 
 						<OptionBoxSection
-							title="Generator Measurement"
+							title="Measurement"
 							description="Selects what the generator measures."
 						>
 							<OptionBox
@@ -125,9 +126,9 @@ function Home() {
 						</OptionBoxSection>
 					</OptionBoxCollection>
 
-					<br />
-					<h1>Color Selection</h1>
-					<OptionBoxCollection>
+					<OptionBoxCollection
+						title="Color Selection"
+					>
 						<OptionBoxSection
 							title="Rate of Color Change"
 							description="This number represents the amount the color changes per iteration."
