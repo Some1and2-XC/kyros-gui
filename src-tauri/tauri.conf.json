@@ -11,7 +11,17 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
+	  "window": {
+		  "all": false,
+		  "close": true,
+		  "hide": true,
+		  "show": true,
+		  "maximize": true,
+		  "minimize": true,
+		  "unmaximize": true,
+		  "unminimize": true,
+		  "startDragging": true
+	  },
       "shell": {
         "all": false,
         "open": true
@@ -38,7 +48,8 @@
         "resizable": true,
         "title": "kyros-gui",
         "width": 800,
-        "height": 600
+        "height": 600,
+		"decorations": false
       }
     ]
   }
