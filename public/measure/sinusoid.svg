@@ -1,0 +1,9 @@
+<svg
+	viewBox="0 0 100 100"
+	xmlns="http://www.w3.org/2000/svg"
+	style="stroke: black; fill: none;stroke-linecap:round;stroke-width:.5"
+>
+	<path style="stroke-width:6;" d="m 10.131553,50.026915 c 19.945096,-26.429148 19.92421,-26.466928 39.859048,-0.03588 19.945099,26.429147 19.942979,26.431048 39.877814,0" />
+	<path d="M 30.149955,0 V 100" />
+	<path d="M 99.999995,50 H 0"/>
+</svg>

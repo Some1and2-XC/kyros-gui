@@ -50,16 +50,54 @@ function OptionBox(props, {children}) {
 					<img
 						src={config.image}
 						style={{
+							display: "block",
 							width: "min(17vw, 10rem)",
-							filter:
-								`
-								drop-shadow(1px 1px 0px white)
-								drop-shadow(-1px 1px 0px white)
-								drop-shadow(1px -1px 0px white)
-								drop-shadow(-1px -1px 0px white)
-								`
+							borderRadius: "min(17vw, 10rem)",
+							marginLeft: "auto",
+							marginRight: "auto",
+							marginBottom: "1em",
+							backgroundColor: "rgba(255, 255, 255, 1)"
 						}}
 					/>
+					{ children }
+				</div>
+			</label>
+		</>
+	);
+}
+
+function OptionTextBox({ children, ...props }) {
+
+	const config = {
+		data_name: props.data_name,
+		data_value: props.data_value,
+	};
+
+	const object_style = {
+		marginLeft: "auto",
+		marginRight: "auto",
+	};
+
+	const [text_value, set_text_value] = useState(config.data_value);
+	
+	let keyUpdate = e => {
+			set_text_value(e.target.value.replace(/[^0-9]/, ""))
+	};
+
+	return (
+		<>
+			<label
+				tabIndex={0}
+				htmlFor={config.data_name}
+				style={object_style}
+			>
+				<input
+					type="text"
+					name={config.data_name}
+					value={text_value}
+					onChange={keyUpdate}
+				/>
+				<div>
 					{ children }
 				</div>
 			</label>
@@ -72,16 +110,18 @@ function OptionBoxSection({ children, ...props }) {
 	const object_style = {
 		display: "flex",
 		flexWrap: "wrap",
+		flexGrow: "1",
 		flexDirection: "column",
+		boxShadow: "3px 2px 15px -15px white",
 		gap: "15px",
 		padding: "15px",
+		margin: "0.5em",
 		border: "1px solid var(--outline-color)",
 		borderRadius: "5px",
 		backgroundColor: "rgba(0, 0, 0, .2)",
 	};
 	const config = {
 		title: props.title,
-		datatype: `<${props.datatype}>`,
 		description: props.description,
 	};
 	const inner_config = {
@@ -95,9 +135,6 @@ function OptionBoxSection({ children, ...props }) {
 		<>
 			<div className="OptionBoxSection" style={object_style}>
 				<h1>{config.title}</h1>
-				<code>(Datatype : { config.datatype })</code>
-				<hr style={{width: "100%"}} />
-				<p>{ config.description }</p>
 				<div style={inner_config}>
 					{children}
 				</div>
@@ -107,15 +144,27 @@ function OptionBoxSection({ children, ...props }) {
 
 }
 
-function OptionBoxForm({children, ...props}) {
-
-	let options = {
-		htmlFor: props.htmlFor
-	};
+function OptionBoxCollection({children, ...props}) {
 	const object_style = {
 		display: "flex",
 		flexWrap: "wrap",
 		gap: "15px",
+	};
+	return (
+		<div style={object_style}>
+			{children}
+		</div>
+	);
+}
+
+function OptionBoxForm({children, ...props}) {
+
+	let options = {
+		htmlFor: props.htmlFor,
+	};
+	const object_style = {
+		display: "flex",
+		flexDirection: "column",
 	};
 
 	return (
@@ -129,4 +178,4 @@ function OptionBoxForm({children, ...props}) {
 	);
 }
 
-export {OptionBox, OptionBoxSection, OptionBoxForm};
+export {OptionBox, OptionTextBox, OptionBoxSection, OptionBoxCollection, OptionBoxForm};
