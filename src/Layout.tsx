@@ -35,7 +35,7 @@ function TitleBar() {
 		<div data-tauri-drag-region style={object_style}>
 			<div data-tauri-drag-region style={{display: "flex", alignItems: "center", gap: "15px", marginLeft: "15px"}}>
 				<img data-tauri-drag-region src={kyrosLogoTextless} style={{height: "75%"}} />
-				<p data-tauri-drag-region style={{color: "white"}}>Kyros</p>
+				<p data-tauri-drag-region style={{color: "white", fontFamily: "Arial", fontWeight: "bold",}}>Kyros</p>
 			</div>
 			<div>
 				<button style={button_style} onClick={() => appWindow.minimize()}>-</button>

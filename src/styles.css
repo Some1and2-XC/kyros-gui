@@ -4,8 +4,8 @@
     line-height: 24px;
     font-weight: 400;
 
-    color: #0f0f0f;
-    background-color: #f6f6f6;
+	color: #f6f6f6;
+	background-color: #2f2f2f;
 
     --outline-color: #d0d0d0;
 	--outline-color: none;
@@ -47,7 +47,7 @@ a {
 }
 
 a:hover {
-    color: #535bf2;
+	color: #24c8db;
 }
 
 h1 {
@@ -72,33 +72,15 @@ button {
 }
 
 button:hover {
-    border-color: #396cd8;
+	border-color: red;
 }
 button:active {
-    border-color: #396cd8;
-    background-color: #e8e8e8;
+	border-color: red;
+	background-color: #0f0f0f69;
 }
 
 input, button {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        color: #f6f6f6;
-        background-color: #2f2f2f;
-    }
-
-    a:hover {
-        color: #24c8db;
-    }
-
-    input,
-    button {
-        color: #ffffff;
-        background-color: #0f0f0f98;
-    }
-    button:active {
-        background-color: #0f0f0f69;
-    }
+	color: #ffffff;
+	background-color: #0f0f0f98;
 }

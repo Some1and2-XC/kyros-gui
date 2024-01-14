@@ -157,10 +157,6 @@ function OptionBoxCollection({children, ...props}) {
 		gap: "15px",
 	};
 
-	const button_style = {
-		width: "100%",
-	};
-
 	const [object_style, set_object_style] = useState(defaults);
 	const [title, set_title] = useState(props.title + " &#709;");
 
@@ -184,7 +180,6 @@ function OptionBoxCollection({children, ...props}) {
 			<br />
 			<button
 				type="button"
-				style={button_style}
 				onClick={toggle_children}
 			> {
 				new DOMParser()
@@ -211,12 +206,14 @@ function OptionBoxForm({children, ...props}) {
 	};
 
 	return (
-		<form>
-			<div className="OptionBoxForm" style={object_style}>
+		<form className="OptionBoxForm">
+			<div style={object_style}>
 				{children}
 			</div>
 			<br />
-			<input type="submit" value="Submit" />
+			<div style={{display: "flex"}}>
+				<button type="submit" value="Submit">Submit</button>
+			</div>
 		</form>
 	);
 }
