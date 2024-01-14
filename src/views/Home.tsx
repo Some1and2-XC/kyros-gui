@@ -20,7 +20,7 @@ function Home() {
 
 	return (
 		<>
-			<div style={{}}>
+			<div style={{width: "100%"}}>
 				<OptionBoxForm>
 					<input 
 						type="submit"

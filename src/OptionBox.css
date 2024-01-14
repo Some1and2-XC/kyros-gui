@@ -17,9 +17,4 @@ label.OptionBox:hover {
 		margin-bottom: 15px;
 		width: 100%;
 	}
-
-	.OptionBoxForm {
-		flex-direction: column !important;
-		gap: 0px !important;
-	}
 } 

@@ -146,20 +146,52 @@ function OptionBoxSection({ children, ...props }) {
 }
 
 function OptionBoxCollection({children, ...props}) {
+
 	const config = {
 		title: props.title,
 	};
 
-	const object_style = {
-		display: "flex",
+	const defaults = {
+		display: "none",
 		flexWrap: "wrap",
 		gap: "15px",
 	};
+
+	const button_style = {
+		width: "100%",
+	};
+
+	const [object_style, set_object_style] = useState(defaults);
+	const [title, set_title] = useState(props.title + " &#709;");
+
+	function toggle_children() {
+
+		let tmp_defaults = {...defaults};
+
+		if (object_style.display === "none") {
+			set_title(config.title + " &#708;");
+			tmp_defaults.display = "flex";
+		} else {
+			set_title(config.title + " &#709;");
+			tmp_defaults.display = "none"
+		}
+
+		set_object_style(tmp_defaults);
+	}
+
 	return (
 		<>
 			<br />
-			<hr style={{width: "100%"}} />
-			<h1>{config.title}</h1>
+			<button
+				type="button"
+				style={button_style}
+				onClick={toggle_children}
+			> {
+				new DOMParser()
+					.parseFromString(title, "text/html")
+					.documentElement
+					.textContent
+			}</button>
 			<div style={object_style}>
 				{children}
 			</div>
@@ -175,6 +207,7 @@ function OptionBoxForm({children, ...props}) {
 	const object_style = {
 		display: "flex",
 		flexDirection: "column",
+		width: "100%",
 	};
 
 	return (
@@ -182,7 +215,7 @@ function OptionBoxForm({children, ...props}) {
 			<div className="OptionBoxForm" style={object_style}>
 				{children}
 			</div>
-			<hr />
+			<br />
 			<input type="submit" value="Submit" />
 		</form>
 	);
