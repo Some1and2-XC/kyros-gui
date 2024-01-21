@@ -18,6 +18,10 @@ label.OptionBox:hover {
 	padding: 1.5em 0px;
 }
 
+.ImageDisplay button {
+	margin: 0px;
+}
+
 @media only screen and (max-width: 800px) {
 	.OptionBoxSection {
 		border-radius: 0px !important;

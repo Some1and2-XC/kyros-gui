@@ -31,6 +31,9 @@
       "active": true,
       "targets": "all",
       "identifier": "com.tauri.dev",
+	  "resources": [
+		"bins/*"
+	  ],
       "icon": [
 		"icons/icon.svg"
       ]

@@ -6,29 +6,25 @@ import ImageDisplay from "../ImageDisplay";
 
 function Home() {
 
-	const [greetMsg, setGreetMsg] = useState("");
-	const [name, setName] = useState("");
-
-	const [image, set_image] = useState("");
-
-	async function kryos() {
-		set_image(await invoke("kyros", { config }));
+	async function kyros() {
+		set_image(await invoke("kyros", { }));
 	}
 
-	async function greet() {
-		setGreetMsg(await invoke("greet", { name }));
-	}
+	const [image, set_image] = useState(null);
 
 	return (
 		<>
 			<div style={{width: "100%"}}>
 
-				<OptionBoxForm>
+				<OptionBoxForm onSubmit={(e) => {
+					e.preventDefault();
+					kyros();
+				}}>
 					<ImageDisplay>
-						<img id="image-output" style={{backgroundColor: "white", width: "min(500px, 100%)", aspectRatio: "1 / 1"}} />
+						<img src={image} style={{backgroundColor: "white", width: "min(500px, 100%)", borderRadius: "5px", aspectRatio: "1 / 1"}} />
 						<button type="submit">Generate</button>
+						<button onClick={e => set_image(null)} type="reset">Clear</button>
 					</ImageDisplay>
-					<img src={image} />
 
 					<OptionBoxCollection
 						title="Generation"
@@ -163,24 +159,6 @@ function Home() {
 						</OptionBoxSection>
 					</OptionBoxCollection>
 				</OptionBoxForm>
-				
-				<br />
-				<form
-					style={{margin: "15px"}}
-					className="row"
-					onSubmit={(e) => {
-						e.preventDefault();
-						greet();
-					}} >
-					<p>{greetMsg}</p>
-					<input
-						id="input-box"
-						onChange={(e) => setName(e.currentTarget.value)}
-						placeholder="Enter a name..."
-					/>
-					<button type="submit">Greet</button>
-				</form>
-
 			</div>
 		</>
 	);

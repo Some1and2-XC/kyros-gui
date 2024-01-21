@@ -194,11 +194,8 @@ function OptionBoxCollection({children, ...props}) {
 	);
 }
 
-function OptionBoxForm({children, ...props}) {
+function OptionBoxForm({children, onSubmit}) {
 
-	let options = {
-		htmlFor: props.htmlFor,
-	};
 	const object_style = {
 		display: "flex",
 		flexDirection: "column",
@@ -206,7 +203,7 @@ function OptionBoxForm({children, ...props}) {
 	};
 
 	return (
-		<form className="OptionBoxForm">
+		<form onSubmit={onSubmit} className="OptionBoxForm">
 			<div style={object_style}>
 				{children}
 			</div>
