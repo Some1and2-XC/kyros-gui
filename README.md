@@ -22,6 +22,8 @@ To install all the packages required, run the following.
 ## Status
 This project is currently in development with no stable releases yet.
 ## Future Development
+ - Adding a confirmation section for images generated over 1000px to be bound to image display.
+ - Adding a toggle for making a preview image on image display.
  - The `rate of color change` section of the UI isn't bound to anything yet, adding this has to be done in core first.
  - Adding a `background color` section with bit depth selection.
  - Patching the size of some of the icons for the displays.
