@@ -35,7 +35,7 @@
 		"bins/*"
 	  ],
       "icon": [
-		"icons/icon.svg"
+		"icons/*"
       ]
     },
     "security": {
