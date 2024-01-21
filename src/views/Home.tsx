@@ -2,11 +2,12 @@ import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
 
 import {OptionBox, OptionTextBox, OptionBoxSection, OptionBoxCollection, OptionBoxForm} from "../OptionBox";
+import ImageDisplay from "../ImageDisplay";
 
 function Home() {
 
-    const [greetMsg, setGreetMsg] = useState("");
-    const [name, setName] = useState("");
+	const [greetMsg, setGreetMsg] = useState("");
+	const [name, setName] = useState("");
 
 	const [image, set_image] = useState("");
 
@@ -14,24 +15,19 @@ function Home() {
 		set_image(await invoke("kyros", { config }));
 	}
 
-    async function greet() {
-        setGreetMsg(await invoke("greet", { name }));
-    }
+	async function greet() {
+		setGreetMsg(await invoke("greet", { name }));
+	}
 
 	return (
 		<>
 			<div style={{width: "100%"}}>
+
 				<OptionBoxForm>
-					<input 
-						type="submit"
-						value="Generate"
-						style={{
-							height: "3em",
-							width: "50%",
-							marginLeft: "auto",
-							marginRight: "auto",
-						}}
-					/>
+					<ImageDisplay>
+						<img id="image-output" style={{backgroundColor: "white", width: "min(500px, 100%)", aspectRatio: "1 / 1"}} />
+						<button type="submit">Generate</button>
+					</ImageDisplay>
 					<img src={image} />
 
 					<OptionBoxCollection

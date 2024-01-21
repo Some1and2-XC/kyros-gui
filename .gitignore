@@ -3,6 +3,8 @@ target/
 package-lock.json
 Cargo.lock
 
+*.exe
+
 # Logs
 logs
 *.log

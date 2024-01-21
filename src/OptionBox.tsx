@@ -210,10 +210,6 @@ function OptionBoxForm({children, ...props}) {
 			<div style={object_style}>
 				{children}
 			</div>
-			<br />
-			<div style={{display: "flex"}}>
-				<button type="submit" value="Submit">Submit</button>
-			</div>
 		</form>
 	);
 }
