@@ -19,9 +19,14 @@ To install all the packages required, run the following.
 ### Running the application
  - For fast initialization, use the `npm run tauri dev` command. 
  - For creating a build (might take a few minutes) use the `npm run tauri build` command. 
-
 ## Status
 This project is currently in development with no stable releases yet.
+## Future Development
+ - The `rate of color change` section of the UI isn't bound to anything yet, adding this has to be done in core first.
+ - Adding a `background color` section with bit depth selection.
+ - Patching the size of some of the icons for the displays.
+ - Adding the logic for the saved images section.
+ - Adding an implimentation for donations.
 ## Tech Stack
  - Tauri (Backend)
  - React (Frontend)
