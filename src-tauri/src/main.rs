@@ -1,10 +1,30 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(
     not(debug_assertions),
-    windows_subsystem = "windows")
-]
+    windows_subsystem = "windows"
+)]
+
+extern crate sqlite;
+
+mod schema;
 
 use std::process::Command;
+use std::os::windows::process::CommandExt;
+use std::error::Error;
+
+use crate::schema::{SQL_DBNAME, SQL_SCHEMA};
+
+// https://stackoverflow.com/a/60958546/15474643
+// Flag for not creating an extra window for CLI commands on windows
+const CREATE_NO_WINDOW: u32 = 0x08000000;
+
+/// Initializes Database Schema
+fn db_init() -> Result<(), Box<dyn Error>> {
+    let connection = sqlite::open(SQL_DBNAME).unwrap();
+    connection.execute(SQL_SCHEMA).unwrap();
+
+    Ok(())
+}
 
 #[tauri::command]
 fn kyros(
@@ -34,6 +54,7 @@ fn kyros(
     let filename = "./bins/kyros.exe";
     let child = Command::new(filename)
         .args(command_args)
+        .creation_flags(CREATE_NO_WINDOW)
         .output();
 
     return match child {
@@ -42,9 +63,18 @@ fn kyros(
     }
 }
 
+#[tauri::command]
+fn save() {
+
+}
+
 fn main() {
+    db_init().unwrap();
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![kyros])
+        .invoke_handler(tauri::generate_handler![
+            kyros,
+            save
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

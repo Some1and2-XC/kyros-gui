@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
 
+import {Popup} from "../components/popup";
 import {OptionBox, OptionTextBox, OptionBoxSection, OptionBoxCollection, OptionBoxForm} from "../OptionBox";
 import ImageDisplay from "../ImageDisplay";
 
@@ -18,6 +19,10 @@ function Home() {
 		}));
 	}
 
+	function save_image(e) {
+		console.log(e);
+	}
+
 	const [image, set_image] = useState(null);
 
 	return (
@@ -29,10 +34,15 @@ function Home() {
 					kyros(e);
 				}}>
 					<ImageDisplay>
-						<img src={image} style={{backgroundColor: "white", width: "min(500px, 100%)", borderRadius: "5px", aspectRatio: "1 / 1"}} />
-						<button type="submit">Generate</button>
-						<button onClick={e => set_image(null)} type="reset">Clear</button>
-					</ImageDisplay>
+						<img src={image} style={{flex: "1", backgroundColor: "white", width: "min(500px, 45%)", borderRadius: "5px", aspectRatio: "1 / 1"}} />
+                        <Popup><button type="submit">Generate</button></Popup>
+                        <Popup><button onClick={e => set_image(null)} type="reset">Clear</button></Popup>
+                        <Popup
+                            out={<p>Output Text</p>}
+                            onClick={e => save_image(e)}>
+                            <button type="reset">Save</button>
+                        </Popup>
+                    </ImageDisplay>
 
 					<OptionBoxCollection
 						title="Generation"
@@ -70,6 +80,7 @@ function Home() {
 								data_name="measurement"
 								data_value="IT"
 								image="./measure/IT.svg"
+								image_padding="25px"
 								checked
 							/>
 							<OptionBox
@@ -156,6 +167,7 @@ function Home() {
 								data_name="color_style"
 								data_value="ROTATIONAL"
 								image="/measure/rotation.svg"
+								image_padding="15px"
 								checked
 							/>
 							<OptionBox

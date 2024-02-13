@@ -1,0 +1,52 @@
+.popup {
+    position: relative;
+    display: flex;
+    flex: 1;
+}
+
+.popup .popup-out {
+    display: none;
+
+    position: absolute;
+    text-align: center;
+
+    top: 105%;
+    left: 0%;
+    width: 100%;
+    padding: 15px 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.popup button {
+    width: 100%;
+}
+
+.popup:hover .popup-out {
+    display: block;
+}
+
+.popup .popup-out::before {
+    content: "";
+    position: absolute;
+    background: none;
+    bottom: 100%;
+    left: 0%;
+    width: 100%;
+    height: calc(11px * 2);
+}
+
+.popup .popup-out::after {
+    content: "";
+    width: 0px;
+
+    position: absolute;
+    bottom: 100%;
+
+    left: calc(50% - 11px);
+    border-width: 11px;
+
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.9);
+}

@@ -18,6 +18,7 @@ function OptionBox(props, {children}) {
 		data_name: props.data_name,
 		data_value: props.data_value,
 		image: props.image,
+		image_padding: props.image_padding ? props.image_padding: "0px",
 	};
 
 	const [object_style, set_object_style] = useState({
@@ -51,11 +52,11 @@ function OptionBox(props, {children}) {
 						src={config.image}
 						style={{
 							display: "block",
-							width: "min(17vw, 10rem)",
+							width: `calc(min(17vw, 10rem) - ${config.image_padding} * 2)`,
+							padding: config.image_padding,
 							borderRadius: "min(17vw, 10rem)",
-							marginLeft: "auto",
-							marginRight: "auto",
-							marginBottom: "1em",
+							margin: "1em auto",
+							marginBottom: "0px",
 							backgroundColor: "rgba(255, 255, 255, 1)"
 						}}
 					/>
@@ -199,7 +200,8 @@ function OptionBoxForm({children, onSubmit}) {
 	const object_style = {
 		display: "flex",
 		flexDirection: "column",
-		width: "100%",
+		width: "auto",
+		padding: "5px",
 	};
 
 	return (

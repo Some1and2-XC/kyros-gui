@@ -12,7 +12,7 @@ label.OptionBox:hover {
 }
 
 .OptionBoxForm button {
-	width: 25%;
+	width: 100%;
 	margin: 0px auto;
 	font-weight: bold;
 	padding: 1.5em 0px;
