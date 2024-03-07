@@ -17,6 +17,7 @@ body {
 	--outline-color: none;
 
     --drag-bar-height: 50px;
+    --view-height: calc(100vh - var(--drag-bar-height));
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;

@@ -63,7 +63,7 @@ function Layout() {
 			<div style={{height: "var(--drag-bar-height)"}}></div>
 			<div style={{
 				overflowY: "scroll",
-				maxHeight: "calc(100vh - var(--drag-bar-height)",
+				maxHeight: "var(--view-height)",
 				width: "100%",
 			}}>
 				<div className="Layout">
