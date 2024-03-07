@@ -27,6 +27,13 @@ body {
 }
 
 /* Scrollbar */
+@-moz-document url-prefix() {
+    * {
+        scrollbar-color: #D40000 transparent;
+        scrollbar-width: thin;
+    }
+}
+
 *::-webkit-scrollbar {
     height: 25px;
     width: 15px;
