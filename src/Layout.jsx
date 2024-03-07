@@ -29,7 +29,9 @@ function TitleBar() {
 		borderRadius: "0px",
 		padding: "5px 15px",
 		margin: "0px",
+
 		height: "100%",
+		width: "var(--drag-bar-height)"
 	};
 
 	return (
