@@ -8,7 +8,7 @@ import kyrosLogoTextless from "./assets/kyros_textless.svg";
 
 function TitleBar() {
 	const object_style = {
-		height: "2em",
+		height: "var(--drag-bar-height)",
 
 		backgroundColor: "rgba(0, 0, 0, .6)",
 		boxShadow: "2px 0px 9px black",
@@ -29,6 +29,7 @@ function TitleBar() {
 		borderRadius: "0px",
 		padding: "5px 15px",
 		margin: "0px",
+		height: "100%",
 	};
 
 	return (
@@ -37,7 +38,7 @@ function TitleBar() {
 				<img data-tauri-drag-region src={kyrosLogoTextless} style={{height: "75%"}} />
 				<p data-tauri-drag-region style={{color: "white", fontFamily: "Arial", fontWeight: "bold",}}>Kyros</p>
 			</div>
-			<div>
+			<div style={{display: "flex", alignItems: "center",}}>
 				<button style={button_style} onClick={() => appWindow.minimize()}>-</button>
 				<button style={button_style} onClick={() => appWindow.toggleMaximize()}>=</button>
 				<button style={button_style} onClick={() => appWindow.close()}>x</button>
@@ -59,16 +60,22 @@ function Layout() {
 	return (
 		<>
 			<TitleBar />
-			<div style={{height: "2em"}}></div>
-			<div className="Layout" style={{overflow: "hidden"}}>
-				<Sidebar>
-					<img src={kyrosLogo} className="logo" alt="Kyros Logo" />
-					<Link to="/">Generation</Link>
-					<Link to="/gallery">Saved Images</Link>
-					<Link to="/donate">Donate</Link>
-					<Link to="/source">Source Code</Link>
-				</Sidebar>
-				<Outlet />
+			<div style={{height: "var(--drag-bar-height)"}}></div>
+			<div style={{
+				overflowY: "scroll",
+				maxHeight: "calc(100vh - var(--drag-bar-height)",
+				width: "100%",
+			}}>
+				<div className="Layout">
+					<Sidebar>
+						<img src={kyrosLogo} className="logo" alt="Kyros Logo" />
+						<Link to="/">Generation</Link>
+						<Link to="/gallery">Saved Images</Link>
+						<Link to="/donate">Donate</Link>
+						<Link to="/source">Source Code</Link>
+					</Sidebar>
+					<Outlet />
+				</div>
 			</div>
 		</>
 	);
