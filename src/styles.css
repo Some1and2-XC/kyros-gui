@@ -29,7 +29,7 @@ body {
 /* Scrollbar */
 @-moz-document url-prefix() {
     * {
-        scrollbar-color: #D40000 transparent;
+        scrollbar-color: #7D0000 transparent;
         scrollbar-width: thin;
     }
 }
@@ -45,7 +45,7 @@ body {
 
 *::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background-color: #D40000;
+    background-color: #7D0000;
 }
 
 *::-webkit-scrollbar-thumb:hover {

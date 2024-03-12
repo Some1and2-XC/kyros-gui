@@ -32,7 +32,7 @@ fn kyros(
         measurement: &str,
         formula: &str,
         resolution: &str,
-        _rate_of_color_change: &str,
+        rate_of_color_change: &str,
         max_i: &str,
         color_style: &str,
     ) -> String {
@@ -43,6 +43,7 @@ fn kyros(
         "-i", max_i,
         "-f", formula,
         "--color", color_style,
+        "--rate-of-color-change", rate_of_color_change,
         "--save-method", "B64",
         "-y"
     ];
