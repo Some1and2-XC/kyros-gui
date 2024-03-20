@@ -12,9 +12,9 @@ function Popup({ children, ...props }) {
             setDisplay(!display);
         }}>
             { children }
-            <div className="popup-out">
+            {/* <div className="popup-out">
                 { props.out }
-            </div>
+            </div> */}
         </div>
     );
 }
