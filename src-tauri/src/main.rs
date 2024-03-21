@@ -37,6 +37,10 @@ fn kyros(
         color_style: &str,
         background: &str,
         foreground: &str,
+        factor_x: &str,
+        factor_y: &str,
+        offset_x: &str,
+        offset_y: &str,
     ) -> String {
 
     // Initializes Command Arguments
@@ -49,6 +53,10 @@ fn kyros(
         "--background", background,
         "--foreground", foreground,
         "--save-method", "B64",
+        "--factor-x", factor_x,
+        "--factor-y", factor_y,
+        "--offset-x", offset_x,
+        "--offset-y", offset_y,
         "-y"
     ];
 

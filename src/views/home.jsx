@@ -18,6 +18,10 @@ function Home() {
 			colorStyle: e.target.color_style.value,
 			background: e.target.background.value,
 			foreground: e.target.foreground.value,
+			factorX: `${factors[0]}`,
+			factorY: `${factors[1]}`,
+			offsetX: `${offsets[0]}`,
+			offsetY: `${offsets[1]}`,
 		}));
 	}
 
@@ -26,6 +30,9 @@ function Home() {
 	}
 
 	const [image, set_image] = useState("");
+	
+	const [factors, set_factors] = useState([4, 4]);
+	const [offsets, set_offsets] = useState([-2, -2]);
 
 	return (
 		<>
@@ -36,9 +43,39 @@ function Home() {
 					kyros(e);
 				}}>
 					<ImageDisplay>
-						<img src={image} style={{flex: "1", backgroundColor: "white", width: "min(500px, 45%)", borderRadius: "5px", aspectRatio: "1 / 1"}} />
+						<input src={image} type="image" style={{
+							flex: "1",
+							backgroundColor: "white",
+							width: "min(500px, 45%)",
+							borderRadius: "5px",
+							aspectRatio: "1 / 1",
+							padding: "0",
+						}} onClick={ (e) => {
+							const zoom_factor = 2;
+							const image_position = e.target.getBoundingClientRect();
+
+							if (e.clientX == e.clientY == 0) {
+
+								var x = (e.clientX - image_position.left) / image_position.width;
+								var y = (e.clientY - image_position.top) / image_position.height;
+
+								set_offsets([
+									offsets[0] + x * factors[0] - (factors[0] / zoom_factor) / 2,
+									offsets[1] + y * factors[1] - (factors[1] / zoom_factor) / 2,
+								]);
+
+								set_factors([
+									factors[0] / zoom_factor,
+									factors[1] / zoom_factor,
+								]);
+							}
+						}} />
                         <Popup><button type="submit">Generate</button></Popup>
-                        <Popup><button onClick={e => set_image("")} type="reset">Clear</button></Popup>
+                        <Popup><button onClick={e => {
+							set_factors([4, 4]);
+							set_offsets([-2, -2]);
+							set_image("")
+						}} type="reset">Clear</button></Popup>
                         <Popup
                             out={<p>Output Text</p>}
                             onClick={e => save_image(e)}>
