@@ -25,7 +25,7 @@ function Home() {
 		console.log(e);
 	}
 
-	const [image, set_image] = useState(null);
+	const [image, set_image] = useState("");
 
 	return (
 		<>
@@ -38,7 +38,7 @@ function Home() {
 					<ImageDisplay>
 						<img src={image} style={{flex: "1", backgroundColor: "white", width: "min(500px, 45%)", borderRadius: "5px", aspectRatio: "1 / 1"}} />
                         <Popup><button type="submit">Generate</button></Popup>
-                        <Popup><button onClick={e => set_image(null)} type="reset">Clear</button></Popup>
+                        <Popup><button onClick={e => set_image("")} type="reset">Clear</button></Popup>
                         <Popup
                             out={<p>Output Text</p>}
                             onClick={e => save_image(e)}>
