@@ -35,6 +35,8 @@ fn kyros(
         rate_of_color_change: &str,
         max_i: &str,
         color_style: &str,
+        background: &str,
+        foreground: &str,
     ) -> String {
 
     // Initializes Command Arguments
@@ -44,6 +46,8 @@ fn kyros(
         "-f", formula,
         "--color", color_style,
         "--rate-of-color-change", rate_of_color_change,
+        "--background", background,
+        "--foreground", foreground,
         "--save-method", "B64",
         "-y"
     ];

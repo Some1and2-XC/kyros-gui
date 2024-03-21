@@ -16,6 +16,8 @@ function Home() {
 			rateOfColorChange: e.target.rate_of_color_change.value,
 			maxI: e.target.max_i.value,
 			colorStyle: e.target.color_style.value,
+			background: e.target.background.value,
+			foreground: e.target.foreground.value,
 		}));
 	}
 
@@ -176,6 +178,22 @@ function Home() {
 								data_value="SINUSOIDAL"
 								image="/measure/sinusoid.svg"
 							/>
+						</OptionBoxSection>
+						<OptionBoxSection title="Background Color">
+							<input style={{
+								flexGrow: "0.5",
+								height: "50px",
+								margin: "auto auto",
+								padding: "0",
+							}} type="color" name="background" defaultValue="#FFFFFF" />
+						</OptionBoxSection>
+						<OptionBoxSection title="Foreground Color">
+							<input style={{
+								flexGrow: "0.5",
+								height: "50px",
+								margin: "auto auto",
+								padding: "0",
+							}} type="color" name="foreground" defaultValue="#000000" />
 						</OptionBoxSection>
 					</OptionBoxCollection>
 				</OptionBoxForm>
