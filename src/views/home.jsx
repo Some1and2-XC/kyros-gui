@@ -52,15 +52,16 @@ function Home() {
                         <div style={{
                             position: "fixed",
                             transform: "translateY(15px)",
-                            backgroundColor: "rgba(255, 0, 0, 0.2)",
+                            backgroundColor: "rgba(255, 255, 255, 0.9)",
+                            boxShadow: "5px 4px 10px -4px black",
                             padding: "15px",
-                            paddingLeft: "5",
                         }}>
                             <p style={{
-                                color: "black",
+                                color: "#7D0000",
                                 margin: "0",
                                 fontFamily: "Arial",
                                 fontWeight: "bold",
+                                textDecoration: "underline",
                             }}>Loading...</p>
                         </div>
                     }
@@ -74,12 +75,11 @@ function Home() {
                                 aspectRatio: "1 / 1",
                                 padding: "0",
                             }}
-                            onError={({ e }) => e.removeAttribute("type")}
                             onClick={ (e) => {
                                 const zoom_factor = 2;
                                 const image_position = e.target.getBoundingClientRect();
 
-                                if (e.clientX == e.clientY == 0) {
+                                if (e.clientX == e.clientY == 0 || image !== "") {
 
                                     var x = (e.clientX - image_position.left) / image_position.width;
                                     var y = (e.clientY - image_position.top) / image_position.height;

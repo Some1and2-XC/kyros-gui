@@ -10,11 +10,11 @@ body {
 
     overflow: hidden;
 
-	color: #f6f6f6;
-	background-color: #2f2f2f;
+    color: #f6f6f6;
+    background-color: #2f2f2f;
 
     --outline-color: #d0d0d0;
-	--outline-color: none;
+    --outline-color: none;
 
     --drag-bar-height: 50px;
     --view-height: calc(100vh - var(--drag-bar-height));
@@ -82,7 +82,7 @@ a {
 }
 
 a:hover {
-	color: #24c8db;
+    color: #24c8db;
 }
 
 h1 {
@@ -107,15 +107,15 @@ button {
 }
 
 button:hover {
-	border-color: red;
+    border-color: red;
 }
 button:active {
-	border-color: red;
-	background-color: #0f0f0f69;
+    border-color: red;
+    background-color: #0f0f0f69;
 }
 
 input, button {
     outline: none;
-	color: #ffffff;
-	background-color: #0f0f0f98;
+    color: #ffffff;
+    background-color: #0f0f0f98;
 }

@@ -11,7 +11,7 @@ mod schema;
 use std::process::Command;
 use std::os::windows::process::CommandExt;
 
-use crate::schema::{SQL_DBNAME, SQL_SCHEMA};
+// use crate::schema::{SQL_DBNAME, SQL_SCHEMA};
 
 // https://stackoverflow.com/a/60958546/15474643
 // Flag for not creating an extra window for CLI commands on windows
