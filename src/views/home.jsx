@@ -8,6 +8,7 @@ import ImageDisplay from "../ImageDisplay";
 function Home() {
 
     function kyros(e) {
+        set_loading_image(true);
         invoke("kyros", {
             julia: e.target.is_julia.value == "1",
             measurement: e.target.measurement.value,
@@ -22,12 +23,17 @@ function Home() {
             factorY: `${factors[1]}`,
             offsetX: `${offsets[0]}`,
             offsetY: `${offsets[1]}`,
-        }).then(img => set_image(img));
+        }).then(img => {
+            set_image(img);
+            set_loading_image(false);
+        });
     }
 
     function save_image(e) {
         console.log(e);
     }
+
+    const [loading_image, set_loading_image] = useState(false);
 
     const [image, set_image] = useState("");
     
@@ -42,8 +48,23 @@ function Home() {
                     e.preventDefault();
                     kyros(e);
                 }}>
+                    { loading_image &&
+                        <div style={{
+                            position: "fixed",
+                            transform: "translateY(15px)",
+                            backgroundColor: "rgba(255, 0, 0, 0.2)",
+                            padding: "15px",
+                            paddingLeft: "5",
+                        }}>
+                            <p style={{
+                                color: "black",
+                                margin: "0",
+                                fontFamily: "Arial",
+                                fontWeight: "bold",
+                            }}>Loading...</p>
+                        </div>
+                    }
                     <ImageDisplay>
-                        <div></div>
                         <input src={image} type={image !== "" && "image"}
                             style={{
                                 flex: "1",
