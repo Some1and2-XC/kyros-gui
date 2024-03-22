@@ -49,20 +49,22 @@ function Home() {
                     kyros(e);
                 }}>
                     { loading_image &&
-                        <div style={{
-                            position: "fixed",
-                            transform: "translateY(15px)",
-                            backgroundColor: "rgba(255, 255, 255, 0.9)",
-                            boxShadow: "5px 4px 10px -4px black",
-                            padding: "15px",
-                        }}>
-                            <p style={{
-                                color: "#7D0000",
-                                margin: "0",
-                                fontFamily: "Arial",
-                                fontWeight: "bold",
-                                textDecoration: "underline",
-                            }}>Loading...</p>
+                        <div style={{position: "relative"}}>
+                            <div style={{
+                                position: "absolute",
+                                transform: "translateY(15px)",
+                                backgroundColor: "rgba(255, 255, 255, 0.9)",
+                                boxShadow: "5px 4px 10px -4px black",
+                                padding: "15px",
+                            }}>
+                                <p style={{
+                                    color: "#7D0000",
+                                    margin: "0",
+                                    fontFamily: "Arial",
+                                    fontWeight: "bold",
+                                    textDecoration: "underline",
+                                }}>Loading...</p>
+                            </div>
                         </div>
                     }
                     <ImageDisplay>
@@ -79,7 +81,7 @@ function Home() {
                                 const zoom_factor = 2;
                                 const image_position = e.target.getBoundingClientRect();
 
-                                if (e.clientX == e.clientY == 0 || image !== "") {
+                                if (e.clientX == e.clientY == 0 && image !== "") {
 
                                     var x = (e.clientX - image_position.left) / image_position.width;
                                     var y = (e.clientY - image_position.top) / image_position.height;
