@@ -4,13 +4,12 @@
     windows_subsystem = "windows"
 )]
 
-extern crate sqlite;
+// extern crate sqlite;
 
 mod schema;
 
 use std::process::Command;
 use std::os::windows::process::CommandExt;
-use std::error::Error;
 
 use crate::schema::{SQL_DBNAME, SQL_SCHEMA};
 
@@ -19,12 +18,15 @@ use crate::schema::{SQL_DBNAME, SQL_SCHEMA};
 const CREATE_NO_WINDOW: u32 = 0x08000000;
 
 /// Initializes Database Schema
+/*
+use std::error::Error;
 fn db_init() -> Result<(), Box<dyn Error>> {
     let connection = sqlite::open(SQL_DBNAME).unwrap();
     connection.execute(SQL_SCHEMA).unwrap();
 
     Ok(())
 }
+*/
 
 #[tauri::command]
 async fn kyros(
@@ -83,7 +85,7 @@ fn save() {
 }
 
 fn main() {
-    db_init().unwrap();
+    // db_init().unwrap();
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             kyros,
