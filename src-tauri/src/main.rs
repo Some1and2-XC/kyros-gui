@@ -27,7 +27,7 @@ fn db_init() -> Result<(), Box<dyn Error>> {
 }
 
 #[tauri::command]
-fn kyros(
+async fn kyros(
         julia: bool,
         measurement: &str,
         formula: &str,
@@ -41,7 +41,7 @@ fn kyros(
         factor_y: &str,
         offset_x: &str,
         offset_y: &str,
-    ) -> String {
+    ) -> Result<String, ()> {
 
     // Initializes Command Arguments
     let mut command_args = vec![
@@ -71,8 +71,9 @@ fn kyros(
         .output();
 
     return match child {
-        Ok(image) => format!("data:image/png;base64,{}", String::from_utf8(image.stdout).unwrap()),
-        Err(error) => format!("Threw Error: {:?}", error),
+        Ok(image) => Ok(format!("data:image/png;base64,{}", String::from_utf8(image.stdout).unwrap())),
+        Err(_error) => Err(()),
+        // Err(error) => Err(format!("Threw Error: {:?}", error)),
     }
 }
 

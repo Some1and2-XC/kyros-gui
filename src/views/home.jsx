@@ -7,8 +7,8 @@ import ImageDisplay from "../ImageDisplay";
 
 function Home() {
 
-	async function kyros(e) {
-		set_image(await invoke("kyros", {
+	function kyros(e) {
+		invoke("kyros", {
 			julia: e.target.is_julia.value == "1",
 			measurement: e.target.measurement.value,
 			formula: e.target.formula.value,
@@ -22,7 +22,7 @@ function Home() {
 			factorY: `${factors[1]}`,
 			offsetX: `${offsets[0]}`,
 			offsetY: `${offsets[1]}`,
-		}));
+		}).then(img => set_image(img));
 	}
 
 	function save_image(e) {
