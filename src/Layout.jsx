@@ -1,10 +1,11 @@
 import { Outlet, Link } from "react-router-dom";
-import { appWindow } from "@tauri-apps/api/window";
+import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 
 import "./Layout.css";
 
 import kyrosLogo from "./assets/kyros.svg";
 import kyrosLogoTextless from "./assets/kyros_textless.svg";
+const appWindow = getCurrentWebviewWindow()
 
 function TitleBar() {
 	const object_style = {

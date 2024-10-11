@@ -1,43 +1,22 @@
 {
+  "identifier": "com.kyros.dev",
   "build": {
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
-    "devPath": "http://localhost:1420",
-    "distDir": "../dist"
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
   },
-  "package": {
-    "productName": "kyros-gui",
-    "version": "0.0.0"
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "resources": [
+      "bins/*"
+    ],
+    "icon": [
+      "icons/*"
+    ]
   },
-  "tauri": {
-    "allowlist": {
-	  "window": {
-		  "all": false,
-		  "close": true,
-		  "hide": true,
-		  "show": true,
-		  "maximize": true,
-		  "minimize": true,
-		  "unmaximize": true,
-		  "unminimize": true,
-		  "startDragging": true
-	  },
-      "shell": {
-        "all": false,
-        "open": true
-      }
-    },
-    "bundle": {
-      "active": true,
-      "targets": "all",
-      "identifier": "com.kyros.dev",
-	  "resources": [
-		"bins/*"
-	  ],
-      "icon": [
-		"icons/*"
-      ]
-    },
+  "app": {
     "security": {
       "csp": null
     },
@@ -48,8 +27,9 @@
         "title": "kyros-gui",
         "width": 800,
         "height": 600,
-		"decorations": false
+        "decorations": false
       }
     ]
-  }
+  },
+  "plugins": {}
 }
