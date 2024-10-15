@@ -9,7 +9,7 @@
 mod schema;
 
 use std::process::Command;
-use std::os::windows::process::CommandExt;
+// use std::os::windows::process::CommandExt;
 
 // use crate::schema::{SQL_DBNAME, SQL_SCHEMA};
 
@@ -66,10 +66,10 @@ async fn kyros(
     if measurement == "TD" { command_args.push("--travel-distance") }
 
     // Sets and calls executable
-    let filename = "./bins/kyros.exe";
+    let filename = "./bins/kyros";
     let child = Command::new(filename)
         .args(command_args)
-        .creation_flags(CREATE_NO_WINDOW)
+        // .creation_flags(CREATE_NO_WINDOW)
         .output();
 
     return match child {
@@ -84,7 +84,7 @@ fn save() {
 
 }
 
-fn main() {
+pub fn main() {
     // db_init().unwrap();
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![

@@ -1,5 +1,7 @@
 media/
 target/
+src-tauri/gen/
+
 package-lock.json
 Cargo.lock
 

@@ -8,8 +8,8 @@ repository = ""
 edition = "2021"
 
 [lib]
-name = "kyros_gui"
-crate-type = ["staticlib", "cdylib", "rlib", "lib"]
+name = "kyros_gui_lib"
+crate-type = ["staticlib", "cdylib", "lib"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
