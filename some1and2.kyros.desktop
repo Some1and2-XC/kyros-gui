@@ -1,0 +1,41 @@
+[Desktop Action NewTab]
+Exec=~/Documents/kyros-gui/src-tauri/target/release/kyros-gui
+Icon=tab-new
+Name=Open a New Tab
+Name[en_GB]=Open a New Tab
+
+[Desktop Action NewWindow]
+Exec=~/Documents/kyros-gui/src-tauri/target/release/kyros-gui
+Icon=window-new
+Name=Open a New Window
+Name[en_GB]=Open a New Window
+
+[Desktop Entry]
+Actions=NewWindow;NewTab;
+Categories=Qt;KDE;System;TerminalEmulator;
+Comment[en_US]=Command line access
+Comment=Command line access
+Comment[en_GB]=Command line access
+Exec='/home/some1and2/Documents/kyros-gui/src-tauri/target/release/kyros-gui'
+GenericName[en_US]=Kyros
+GenericName=Kyros
+GenericName[en_GB]=Kyros
+Icon=/home/some1and2/Documents/kyros-core/logo.svg
+Keywords=kyros;fractal;math;terminal;console;script;run;execute;command;command-line;commandline;cli;bash;sh;shell;zsh;cmd;command prompt
+Keywords[en_GB]=terminal;console;script;run;execute;command;command-line;commandline;cli;bash;sh;shell;zsh;cmd;command prompt
+MimeType=
+Name[en_US]=Kyros
+Name=Kyros
+Name[en_GB]=Kyros
+Path=
+StartupNotify=true
+StartupWMClass=kyros
+Terminal=false
+TerminalOptions=
+TryExec=kyros
+Type=Application
+X-DBUS-StartupType=Unique
+X-DocPath=kyros/index.html
+X-KDE-AuthorizeAction=shell_access
+X-KDE-SubstituteUID=false
+X-KDE-Username=

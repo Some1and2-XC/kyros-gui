@@ -59,6 +59,7 @@ async fn kyros(
         "--factor-y", factor_y,
         "--offset-x", offset_x,
         "--offset-y", offset_y,
+        "--gpu",
         "-y"
     ];
 
