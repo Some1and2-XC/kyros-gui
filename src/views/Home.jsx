@@ -9,6 +9,13 @@ function Home() {
 
     function kyros(e) {
         set_loading_image(true);
+
+        console.log("Generating with parameters:");
+
+        for (var element in e.target.elements) {
+            console.log("\tElement: " + e.target.elements[element].name + ": " + e.target.elements[element].value);
+        }
+
         invoke("kyros", {
             julia: e.target.is_julia.value == "1",
             measurement: e.target.measurement.value,
@@ -232,7 +239,7 @@ function Home() {
                                 title="Rotational"
                                 data_name="color_style"
                                 data_value="ROTATIONAL"
-                                image="/measure/rotation.svg"
+                                image="./measure/rotation.svg"
                                 image_padding="15px"
                                 checked
                             />
@@ -240,7 +247,7 @@ function Home() {
                                 title="Sinusoidal"
                                 data_name="color_style"
                                 data_value="SINUSOIDAL"
-                                image="/measure/sinusoid.svg"
+                                image="./measure/sinusoid.svg"
                             />
                         </OptionBoxSection>
                         <OptionBoxSection title="Background Color">
